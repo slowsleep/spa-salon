@@ -15,13 +15,15 @@ $auth = $_SESSION['auth'] ?? null;
 
 if(!$auth) { ?>
 
-<h1>Войти</h1>
+    <h1>Регистрация</h1>
 
-<form action="process.php" method="post">
-    <input name="login" type="text" placeholder="Логин">
-    <input name="password" type="password" placeholder="Пароль">
-    <input name="submit" type="submit" value="Войти">
-</form>
+    <form action="createUser.php" method="post">
+        <input name="login" type="text" placeholder="Логин">
+        <input name="birthday" type="date" placeholder="Дата рождения">
+        <input name="password1" type="password" placeholder="Пароль">
+        <input name="password2" type="password" placeholder="Подтверждение пароль">
+        <input name="submit" type="submit" value="Войти">
+    </form>
 
 <?php } else {
 //    redirect to index
