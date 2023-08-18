@@ -32,14 +32,13 @@ $auth = $_SESSION['auth'] ?? null;
             </div>
         </nav>
     </header>
-    <main class="container mg-2 p-2">
+    <main class="container mg-2 p-2" style="width: 75%">
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
                 <p class="card-text">Приглашаем в наш прекрасный SPA-салон, где Вы сможете с комфортом и пользой для здоровье провести свое драгоценное время.</p>
+                <img src="img/spa-pool.jpg" class="card-img-bottom border border-primary" alt="Бассейн" style="width: 75%">
             </div>
-            <img src="img/spa-pool.jpg" class="card-img-bottom" alt="Бассейн" width="200">
         </div>
 
         <div class="row m-4">
@@ -49,19 +48,30 @@ $auth = $_SESSION['auth'] ?? null;
         </div>
 
         <div class="row">
-            <div class="col-md-6 d-flex justify-content-center">
+            <div class="col-md d-flex justify-content-center">
                 <div class="card" style="width: 18rem;">
                     <img src="img/rocks.jpeg" class="card-img-top" alt="камни">
                     <div class="card-body">
-                        <p class="card-text">Камни</p>
+                        <p class="card-text">Стоун-терапия</p>
+                        <p>Цена: <b>3000</b></p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 d-flex justify-content-center">
+            <div class="col-md d-flex justify-content-center">
                 <div class="card" style="width: 18rem;">
                     <img src="img/massage.jpg" class="card-img-top" alt="масссаж">
                     <div class="card-body">
-                        <p class="card-text">Массаж</p>
+                        <p class="card-text">Фирменный СПА-массаж с ароматерапией</p>
+                        <p>Цена: <b>2850</b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md d-flex justify-content-center">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/tai-massage.jpg" class="card-img-top" alt="масссаж">
+                    <div class="card-body">
+                        <p class="card-text">Массаж с элементами Тайского</p>
+                        <p>Цена: <b>1890</b></p>
                     </div>
                 </div>
             </div>
@@ -79,6 +89,7 @@ $auth = $_SESSION['auth'] ?? null;
                     <img src="img/room1person.jpg" class="card-img-top" alt="камни">
                     <div class="card-body">
                         <p class="card-text">Для одного</p>
+                        <p>Цена: <b>1500</b></p>
                     </div>
                 </div>
             </div>
@@ -87,6 +98,7 @@ $auth = $_SESSION['auth'] ?? null;
                     <img src="img/room2person.jpg" class="card-img-top" alt="масссаж">
                     <div class="card-body">
                         <p class="card-text">Для двоих</p>
+                        <p>Цена: <b>2700</b></p>
                     </div>
                 </div>
             </div>
