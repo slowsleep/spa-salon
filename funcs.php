@@ -72,7 +72,6 @@ function getIdByName($username) : string|null
     for ($i = 0; $i < $count_users; $i++) {
         if ($users_json["users"][$i]["username"] == $username) {
             $res = $users_json["users"][$i]["id"];
-            var_dump($res);
         }
     }
 

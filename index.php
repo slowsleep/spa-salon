@@ -26,8 +26,7 @@ $auth = $_SESSION['auth'] ?? null;
                 <?php } else {
                     // get username by id from session
                     ?>
-<!--                    <p>Привет, --><?php //print_r($_SESSION['login']) ?><!--!</p>-->
-                    <p>Привет, <?php printf(getCurrentUser()) ?>!</p>
+                    <p>Привет, <?php print_r(getCurrentUser()) ?>!</p>
                     <a href="logout.php">Выйти</a>
                 <?php } ?>
             </div>
