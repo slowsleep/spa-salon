@@ -2,7 +2,7 @@
 
 
 // возвращает массив всех пользователей и хэшей их паролей;
-function getUsersList()
+function getUsersList() : array
 {
     $file = file_get_contents('./users.json');
     $users_json = json_decode($file, true);
@@ -19,7 +19,7 @@ function getUsersList()
 
 
 // проверяет, существует ли пользователь с указанным логином
-function existsUser($login)
+function existsUser($login) : bool
 {
     $all_users = getUsersList();
     foreach ($all_users as $user) {
@@ -33,7 +33,7 @@ function existsUser($login)
 
 // пусть возвращает true тогда, когда существует пользователь
 // с указанным логином и введенный им пароль прошел проверку, иначе — false
-function checkPassword($login, $password)
+function checkPassword($login, $password) : bool
 {
 
     $all_users = getUsersList();
@@ -47,7 +47,7 @@ function checkPassword($login, $password)
 
 
 // которая возвращает либо имя вошедшего на сайт пользователя, либо null.
-function getCurrentUser()
+function getCurrentUser() : string|null
 {
     $res = null;
     $data = getUserById($_SESSION['id']);
@@ -62,32 +62,35 @@ function getCurrentUser()
 
 // мои функции
 // получение ID пользователя по его логину(юзернейму)
-function getIdByName($username)
+function getIdByName($username) : string|null
 {
     $file = file_get_contents('./users.json');
     $users_json = json_decode($file, true);
     $count_users = count($users_json["users"]);
+    $res = null;
 
     for ($i = 0; $i < $count_users; $i++) {
         if ($users_json["users"][$i]["username"] == $username) {
-            return $users_json["users"][$i]["id"];
+            $res = $users_json["users"][$i]["id"];
+            var_dump($res);
         }
     }
 
-    return null;
+    return $res;
 }
 
 
 // получение всех данных пользователя (кроме пароля) по его ID
-function getUserById($id)
+function getUserById($id) : array|null
 {
     $file = file_get_contents('./users.json');
     $users_json = json_decode($file, true);
     $all_users = $users_json["users"];
+    $res = null;
 
     foreach ($all_users as $user) {
         if ($user["id"] == $id) {
-            return [
+            $res = [
                 "id" => $id,
                 "username" => $user["username"],
                 "birthday" => $user["birthday"],
@@ -96,12 +99,12 @@ function getUserById($id)
         }
     }
 
-    return null;
+    return $res;
 }
 
 
 // добавть нового пользователя в файл json
-function addNewUser($username, $birthday, $password)
+function addNewUser($username, $birthday, $password) : array|bool
 {
     if (existsUser($username)) {
         return false;
