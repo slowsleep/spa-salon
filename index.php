@@ -12,44 +12,84 @@ $auth = $_SESSION['auth'] ?? null;
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SPA-салон Гармония</title>
+    <title>SPA-салон "Гармония"</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
     <header>
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">SPA-салон <i>Гармония</i></a>
-                <?php if(!$auth) { ?>
-                    <a href="login.php">Войти</a>
-                    <a href="registration.php">Регистрация</a>
-                <?php } else {
-                    // get username by id from session
-                    ?>
-                    <p>Привет, <?php print_r(getCurrentUser()) ?>!</p>
-                    <a href="logout.php">Выйти</a>
-                <?php } ?>
-            </div>
+                    <div class="col-md-9">
+                        <a class="navbar-brand" href="#">SPA-салон "Гармония"</a>
+                    </div>
+                    <div class="col-md-3 text-end">
+                        <?php if(!$auth) { ?>
+                            <p>
+                                <a class="pe-2" href="login.php">Вход</a>
+                                <a href="registration.php">Регистрация</a>
+                            </p>
+                        <?php } else {
+                            // get username by id from session
+                            ?>
+                            <p>
+                                Привет, <?php print_r(getCurrentUser()) ?>!
+                                <a class="ps-2" href="logout.php">Выйти</a>
+                            </p>
+                        <?php } ?>
+                    </div>
+                </div>
         </nav>
     </header>
     <main class="container mg-2 p-2" style="width: 75%">
 
-        <div class="card">
-            <div class="card-body">
-                <p class="card-text">Приглашаем в наш прекрасный SPA-салон, где Вы сможете с комфортом и пользой для здоровье провести свое драгоценное время.</p>
-                <img src="img/spa-pool.jpg" class="card-img-bottom border border-primary" alt="Бассейн" style="width: 75%">
+        <div>
+            <p class="fs-5">SPA-салон Гармония - место, где вы сможете с комфортом и пользой для здоровье провести свое время.</p>
+            <div class="d-flex align-items-center justify-content-center">
+                <img src="img/spa-pool.jpg" class="border rounded" alt="Бассейн" style="width: 100%">
             </div>
+            <p class="fs-5">Если вы часто проводите время в стрессе, чувствуете напряжение в теле, то вам к нам!</p>
         </div>
+
 
         <div class="row m-4">
             <div class="col-md-12 d-flex justify-content-center">
-                <p>Услуги</p>
+                <h2>Услуги</h2>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md d-flex justify-content-center">
+                <div class="card" >
+                    <img src="img/massage-standart.jpg" class="card-img-top" alt="камни">
+                    <div class="card-body">
+                        <p class="card-text">Массаж стандартный</p>
+                        <p>Цена: <b>2500</b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md d-flex justify-content-center">
+                <div class="card" >
+                    <img src="img/massage-face.jpg" class="card-img-top" alt="масссаж">
+                    <div class="card-body">
+                        <p class="card-text">Массаж лица</p>
+                        <p>Цена: <b>1450</b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md d-flex justify-content-center">
+                <div class="card" >
+                    <img src="img/massage-shoko.JPG" class="card-img-top" alt="масссаж">
+                    <div class="card-body">
+                        <p class="card-text">Шоколадный массаж</p>
+                        <p>Цена: <b>2900</b></p>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md d-flex justify-content-center">
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <img src="img/rocks.jpeg" class="card-img-top" alt="камни">
                     <div class="card-body">
                         <p class="card-text">Стоун-терапия</p>
@@ -58,20 +98,20 @@ $auth = $_SESSION['auth'] ?? null;
                 </div>
             </div>
             <div class="col-md d-flex justify-content-center">
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <img src="img/massage.jpg" class="card-img-top" alt="масссаж">
                     <div class="card-body">
                         <p class="card-text">Фирменный СПА-массаж с ароматерапией</p>
-                        <p>Цена: <b>2850</b></p>
+                        <p>Цена: <b>2900</b></p>
                     </div>
                 </div>
             </div>
             <div class="col-md d-flex justify-content-center">
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <img src="img/tai-massage.jpg" class="card-img-top" alt="масссаж">
                     <div class="card-body">
                         <p class="card-text">Массаж с элементами Тайского</p>
-                        <p>Цена: <b>1890</b></p>
+                        <p>Цена: <b>2800</b></p>
                     </div>
                 </div>
             </div>
@@ -79,7 +119,7 @@ $auth = $_SESSION['auth'] ?? null;
 
         <div class="row m-4">
             <div class="col-md-12 d-flex justify-content-center">
-                <p>Комнаты</p>
+                <h2>Комнаты</h2>
             </div>
         </div>
 
@@ -108,7 +148,10 @@ $auth = $_SESSION['auth'] ?? null;
     <footer>
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
-                <p class=".text-body-tertiary text-align-left">SPA-салон <i>Гармония</i></p>
+                <div class="row d-flex justify-content-center text-align-center">
+                    <p class="text-body-tertiary">SPA-салон "Гармония"</p>
+                    <p class="text-body-tertiary">2023</p>
+                </div>
             </div>
         </nav>
     </footer>

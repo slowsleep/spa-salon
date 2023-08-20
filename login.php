@@ -14,14 +14,33 @@ session_start();
 $auth = $_SESSION['auth'] ?? null;
 
 if(!$auth) { ?>
+    <header>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.php">SPA-салон "Гармония"</a>
+                <a href="registration.php">Регистрация</a>
+            </div>
+        </nav>
+    </header>
+    <main class="container mg-2 p-2" style="width: 75%">
 
-<h1>Войти</h1>
+        <h1>Вход</h1>
 
-<form action="process.php" method="post">
-    <input name="login" type="text" placeholder="Логин">
-    <input name="password" type="password" placeholder="Пароль">
-    <input name="submit" type="submit" value="Войти">
-</form>
+        <div class="d-flex align-items-center justify-content-center">
+            <form action="process.php" method="post" style="width: 60%">
+                <div class="mb-3">
+                    <label for="inputLogin" class="form-label">Логин</label>
+                    <input name="login" type="text" class="form-control" id="inputLogin" placeholder="Логин">
+                </div>
+                <div class="mb-3">
+                    <label for="inputPassword1" class="form-label">Пароль</label>
+                    <input name="password" type="password" class="form-control" id="inputPassword1" placeholder="Пароль">
+                </div>
+                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+    </main>
 
 <?php } else {
 //    redirect to index

@@ -35,7 +35,6 @@ function existsUser($login) : bool
 // с указанным логином и введенный им пароль прошел проверку, иначе — false
 function checkPassword($login, $password) : bool
 {
-
     $all_users = getUsersList();
     foreach ($all_users as $user) {
         if ($user["username"] == $login and $user["password"] == sha1($password)) {
@@ -61,6 +60,7 @@ function getCurrentUser() : string|null
 
 
 // мои функции
+
 // получение ID пользователя по его логину(юзернейму)
 function getIdByName($username) : string|null
 {
@@ -127,5 +127,4 @@ function addNewUser($username, $birthday, $password) : array|bool
     file_put_contents('./users.json', $new_users_json);
 
     return $new_user;
-
 }
