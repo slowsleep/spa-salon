@@ -128,3 +128,38 @@ function addNewUser($username, $birthday, $password) : array|bool
 
     return $new_user;
 }
+
+
+// является ли данный день днем рождения пользователя
+function isBirthday($userDate) : bool
+{
+    $now = new DateTime();
+    $nowDateF = $now->format('Y-m-d');
+    $usersBirthdayF = $userDate->format('Y-m-d');
+
+    return $nowDateF == $usersBirthdayF;
+}
+
+
+// количество дней до дня рождения
+function daysBirthday($id) : string
+{
+    $user = getUserById($id);
+    $userDate = new DateTime($user["birthday"]);
+    $userYear = $userDate->format('Y');
+    $now = new DateTime();
+    $nowYear = $now->format('Y');
+    $diffYears = $nowYear - $userYear;
+    $nextUsersBirthday = $userDate->modify('+' . $diffYears . " years");
+
+    if (isBirthday($nextUsersBirthday)) {
+        $res = "Поздравляю с днем рождения!";
+    } else {
+        $res = "Осталось дней до дня рождения: " . date_diff($now, $nextUsersBirthday)->days;
+    }
+
+    return $res;
+}
+
+
+

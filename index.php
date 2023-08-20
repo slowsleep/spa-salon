@@ -42,6 +42,13 @@ $auth = $_SESSION['auth'] ?? null;
     </header>
     <main class="container mg-2 p-2" style="width: 75%">
 
+        <?php if($auth) { ?>
+        <div class="text-body-tertiary text-end mb-4">
+<!--            TODO: сделать персональные акции в честь дня рождения -->
+            <?php print_r(daysBirthday($_SESSION['id'])); ?>
+        </div>
+        <?php } ?>
+
         <div>
             <p class="fs-5">SPA-салон Гармония - место, где вы сможете с комфортом и пользой для здоровье провести свое время.</p>
             <div class="d-flex align-items-center justify-content-center">

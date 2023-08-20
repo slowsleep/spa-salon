@@ -26,5 +26,5 @@ $auth = $_SESSION['auth'] ?? null;
 if ($auth) {
     header('Location: /index.php');
 } else { ?>
-    <p>Неверно введены пароль или логин</p>
+    <p>Неверно введены пароль или логин. Либо что-то пошло не так.</p>
 <?php }
