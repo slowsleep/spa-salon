@@ -149,8 +149,14 @@ function daysBirthday($id) : string
     $userYear = $userDate->format('Y');
     $now = new DateTime();
     $nowYear = $now->format('Y');
+
     $diffYears = $nowYear - $userYear;
     $nextUsersBirthday = $userDate->modify('+' . $diffYears . " years");
+
+    if ($now > $nextUsersBirthday)
+    {
+        $nextUsersBirthday->modify('+ 1 year');
+    }
 
     if (isBirthday($nextUsersBirthday)) {
         $res = "Поздравляю с днем рождения!";
