@@ -28,9 +28,7 @@ $auth = $_SESSION['auth'] ?? null;
                                 <a class="pe-2" href="login.php">Вход</a>
                                 <a href="registration.php">Регистрация</a>
                             </p>
-                        <?php } else {
-                            // get username by id from session
-                            ?>
+                        <?php } else { ?>
                             <p>
                                 Привет, <a href="profile.php"><?php print_r(getCurrentUser()) ?></a>!
                                 <a class="ps-2" href="logout.php">Выйти</a>
@@ -55,7 +53,6 @@ $auth = $_SESSION['auth'] ?? null;
             </div>
             <p class="fs-5">Если вы часто проводите время в стрессе, чувствуете напряжение в теле, то вам к нам!</p>
         </div>
-
 
         <div class="row m-4">
             <div class="col-md-12 d-flex justify-content-center">
@@ -177,7 +174,14 @@ $auth = $_SESSION['auth'] ?? null;
                     <img src="img/room1person.jpg" class="card-img-top" alt="камни">
                     <div class="card-body">
                         <p class="card-text">Для одного</p>
-                        <p>Цена: <b>1500</b></p>
+                        <p>Цена:
+                            <?php
+                            if (isBirthday($_SESSION['id'])) { ?>
+                                <s>1500</s> <b>1425</b> <b class="text-danger">-5%</b>
+                            <?php } else { ?>
+                                <b>1500</b>
+                            <?php } ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -186,7 +190,14 @@ $auth = $_SESSION['auth'] ?? null;
                     <img src="img/room2person.jpg" class="card-img-top" alt="масссаж">
                     <div class="card-body">
                         <p class="card-text">Для двоих</p>
-                        <p>Цена: <b>2700</b></p>
+                        <p>Цена:
+                            <?php
+                            if (isBirthday($_SESSION['id'])) { ?>
+                                <s>2700</s> <b>2565</b> <b class="text-danger">-5%</b>
+                            <?php } else { ?>
+                                <b>2700</b>
+                            <?php } ?>
+                        </p>
                     </div>
                 </div>
             </div>
