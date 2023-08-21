@@ -80,7 +80,7 @@ if(!$auth) { ?>
             </div>
         </div>
 
-        <h2 class="mt-3">Акции</h2>
+        <h2 class="mt-3">Акции, для первых посетителей</h2>
 
         <div class="row">
             <div class="col-md d-flex justify-content-center">
@@ -88,7 +88,7 @@ if(!$auth) { ?>
                     <img src="img/massage-standart.jpg" class="card-img-top" alt="камни">
                     <div class="card-body">
                         <p class="card-text">Массаж стандартный</p>
-                        <p>Цена: <s>2500</s> <b>1999</b></p>
+                        <p>Цена: <s>2500</s> <b>2399</b></p>
                     </div>
                 </div>
             </div>
@@ -97,7 +97,7 @@ if(!$auth) { ?>
                     <img src="img/massage-face.jpg" class="card-img-top" alt="масссаж">
                     <div class="card-body">
                         <p class="card-text">Массаж лица</p>
-                        <p>Цена: <s>1450</s> <b>899</b></p>
+                        <p>Цена: <s>1500</s> <b>1199</b></p>
                     </div>
                 </div>
             </div>
@@ -126,11 +126,11 @@ if(!$auth) { ?>
                     <img src="img/room2person.jpg" class="d-block w-100" alt="Комната на 2 персоны">
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>

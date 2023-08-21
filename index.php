@@ -44,7 +44,6 @@ $auth = $_SESSION['auth'] ?? null;
 
         <?php if($auth) { ?>
         <div class="text-body-tertiary text-end mb-4">
-<!--            TODO: сделать персональные акции в честь дня рождения -->
             <?php print_r(daysBirthday($_SESSION['id'])); ?>
         </div>
         <?php } ?>
@@ -70,7 +69,14 @@ $auth = $_SESSION['auth'] ?? null;
                     <img src="img/massage-standart.jpg" class="card-img-top" alt="камни">
                     <div class="card-body">
                         <p class="card-text">Массаж стандартный</p>
-                        <p>Цена: <b>2500</b></p>
+                        <p>Цена:
+                            <?php
+                            if (isBirthday($_SESSION['id'])) { ?>
+                                <s>2500</s> <b>2375</b> <b class="text-danger">-5%</b>
+                            <?php } else { ?>
+                                <b>2500</b>
+                            <?php } ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -79,7 +85,14 @@ $auth = $_SESSION['auth'] ?? null;
                     <img src="img/massage-face.jpg" class="card-img-top" alt="масссаж">
                     <div class="card-body">
                         <p class="card-text">Массаж лица</p>
-                        <p>Цена: <b>1450</b></p>
+                        <p>Цена:
+                            <?php
+                            if (isBirthday($_SESSION['id'])) { ?>
+                                <s>1500</s> <b>1425</b> <b class="text-danger">-5%</b>
+                            <?php } else { ?>
+                                <b>1500</b>
+                            <?php } ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -88,7 +101,14 @@ $auth = $_SESSION['auth'] ?? null;
                     <img src="img/massage-shoko.JPG" class="card-img-top" alt="масссаж">
                     <div class="card-body">
                         <p class="card-text">Шоколадный массаж</p>
-                        <p>Цена: <b>2900</b></p>
+                        <p>Цена:
+                            <?php
+                            if (isBirthday($_SESSION['id'])) { ?>
+                                <s>2900</s> <b>2755</b> <b class="text-danger">-5%</b>
+                            <?php } else { ?>
+                                <b>2900</b>
+                            <?php } ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -100,7 +120,14 @@ $auth = $_SESSION['auth'] ?? null;
                     <img src="img/rocks.jpeg" class="card-img-top" alt="камни">
                     <div class="card-body">
                         <p class="card-text">Стоун-терапия</p>
-                        <p>Цена: <b>3000</b></p>
+                        <p>Цена:
+                            <?php
+                            if (isBirthday($_SESSION['id'])) { ?>
+                                <s>3000</s> <b>2850</b> <b class="text-danger">-5%</b>
+                            <?php } else { ?>
+                                <b>3000</b>
+                            <?php } ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -109,7 +136,14 @@ $auth = $_SESSION['auth'] ?? null;
                     <img src="img/massage.jpg" class="card-img-top" alt="масссаж">
                     <div class="card-body">
                         <p class="card-text">Фирменный СПА-массаж с ароматерапией</p>
-                        <p>Цена: <b>2900</b></p>
+                        <p>Цена:
+                            <?php
+                            if (isBirthday($_SESSION['id'])) { ?>
+                                <s>2900</s> <b>2755</b> <b class="text-danger">-5%</b>
+                            <?php } else { ?>
+                                <b>2900</b>
+                            <?php } ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -118,7 +152,14 @@ $auth = $_SESSION['auth'] ?? null;
                     <img src="img/tai-massage.jpg" class="card-img-top" alt="масссаж">
                     <div class="card-body">
                         <p class="card-text">Массаж с элементами Тайского</p>
-                        <p>Цена: <b>2800</b></p>
+                        <p>Цена:
+                            <?php
+                            if (isBirthday($_SESSION['id'])) { ?>
+                                <s>2800</s> <b>2660</b> <b class="text-danger">-5%</b>
+                            <?php } else { ?>
+                                <b>2800</b>
+                            <?php } ?>
+                        </p>
                     </div>
                 </div>
             </div>

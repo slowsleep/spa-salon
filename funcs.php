@@ -131,13 +131,15 @@ function addNewUser($username, $birthday, $password) : array|bool
 
 
 // является ли данный день днем рождения пользователя
-function isBirthday($userDate) : bool
-{
-    $now = new DateTime();
-    $nowDateF = $now->format('Y-m-d');
-    $usersBirthdayF = $userDate->format('Y-m-d');
+function isBirthday($id) {
+    $user = getUserById($id);
+    $userDate = new DateTime($user["birthday"]);
+    $userDateF = $userDate->format('m-d');
 
-    return $nowDateF == $usersBirthdayF;
+    $nowDate = new DateTime();
+    $nowDateF = $nowDate->format('m-d');
+
+    return $userDateF == $nowDateF;
 }
 
 
@@ -153,14 +155,13 @@ function daysBirthday($id) : string
     $diffYears = $nowYear - $userYear;
     $nextUsersBirthday = $userDate->modify('+' . $diffYears . " years");
 
-    if ($now > $nextUsersBirthday)
-    {
-        $nextUsersBirthday->modify('+ 1 year');
-    }
-
-    if (isBirthday($nextUsersBirthday)) {
+    if (isBirthday($id)) {
         $res = "Поздравляю с днем рождения!";
     } else {
+        if ($now > $nextUsersBirthday)
+        {
+            $nextUsersBirthday->modify('+ 1 year');
+        }
         $res = "Осталось дней до дня рождения: " . date_diff($now, $nextUsersBirthday)->days;
     }
 
