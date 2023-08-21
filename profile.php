@@ -34,7 +34,7 @@ if($auth) {
         </nav>
     </header>
 
-    <main class="container mg-2 p-2" style="width: 30%">
+    <main class="container mg-2 p-2 min-vh-100" style="width: 30%">
         <h2>Личный кабинет</h2>
         <div class="m-2 p-2">
             <?php $user = getUserById($_SESSION['id']); ?>
@@ -43,6 +43,17 @@ if($auth) {
             <p>Дата создания аккаунта: <?php echo $user["created_at"] ?></p>
         </div>
     </main>
+
+    <footer>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid d-flex justify-content-center align-items-center">
+                <div class="row">
+                    <p class="text-body-tertiary text-center">SPA-салон "Гармония"</p>
+                    <p class="text-body-tertiary text-center">2023</p>
+                </div>
+            </div>
+        </nav>
+    </footer>
 <?php } else {
     header('Location: /');
 }

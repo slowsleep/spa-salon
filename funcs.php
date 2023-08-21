@@ -114,7 +114,7 @@ function addNewUser($username, $birthday, $password) : array|bool
     $count_users = count($users_json["users"]);
     $newId = $count_users + 1;
     date_default_timezone_set('Europe/Moscow');
-    $cur_date = date('Y-d-m H:i:s');
+    $cur_date = date('Y-m-d H:i:s');
     $new_user = [
         "id" => $newId,
         "username" => $username,
@@ -132,7 +132,8 @@ function addNewUser($username, $birthday, $password) : array|bool
 
 
 // является ли данный день днем рождения пользователя
-function isBirthday($id) {
+function isBirthday($id) : bool
+{
     $user = getUserById($id);
     $userDate = new DateTime($user["birthday"]);
     $userDateF = $userDate->format('m-d');
@@ -169,5 +170,19 @@ function daysBirthday($id) : string
     return $res;
 }
 
+// выводит разницу времени регистрации с нынешнем временем
+function discountExpiration($id) : array|bool
+{
+    date_default_timezone_set('Europe/Moscow');
+    $user = getUserById($id);
+    $userCreatedAt = new DateTime($user["created_at"]);
+    $nowDate = new DateTime();
+    $diff = date_diff($nowDate, $userCreatedAt);
 
+    if ($diff->days > 0) {
+        return false;
+    }
+
+    return ["h" => (23 - $diff->h) , "i" => (59 - $diff->i) , "s" => (59 - $diff->s) ];
+}
 

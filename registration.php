@@ -136,6 +136,16 @@ if(!$auth) { ?>
             </button>
         </div>
     </main>
+    <footer>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid d-flex justify-content-center align-items-center">
+                <div class="row">
+                    <p class="text-body-tertiary text-center">SPA-салон "Гармония"</p>
+                    <p class="text-body-tertiary text-center">2023</p>
+                </div>
+            </div>
+        </nav>
+    </footer>
 
 <?php } else {
 //    redirect to index

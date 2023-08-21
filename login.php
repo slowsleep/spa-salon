@@ -22,7 +22,7 @@ if(!$auth) { ?>
             </div>
         </nav>
     </header>
-    <main class="container mg-2 p-2" style="width: 75%">
+    <main class="container mg-2 p-2 min-vh-100" style="width: 75%">
 
         <h1>Вход</h1>
 
@@ -39,8 +39,18 @@ if(!$auth) { ?>
                 <button name="submit" type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-
     </main>
+
+    <footer>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid d-flex justify-content-center align-items-center">
+                <div class="row">
+                    <p class="text-body-tertiary text-center">SPA-салон "Гармония"</p>
+                    <p class="text-body-tertiary text-center">2023</p>
+                </div>
+            </div>
+        </nav>
+    </footer>
 
 <?php } else {
 //    redirect to index
@@ -48,7 +58,6 @@ if(!$auth) { ?>
 } ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
 </body>

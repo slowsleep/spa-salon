@@ -41,18 +41,59 @@ $auth = $_SESSION['auth'] ?? null;
     <main class="container mg-2 p-2" style="width: 75%">
 
         <?php if($auth) { ?>
-        <div class="text-body-tertiary text-end mb-4">
-            <?php print_r(daysBirthday($_SESSION['id'])); ?>
-        </div>
+            <div class="text-body-tertiary text-end mb-4">
+                <?php print_r(daysBirthday($_SESSION['id'])); ?>
+            </div>
         <?php } ?>
 
-        <div>
-            <p class="fs-5">SPA-салон Гармония - место, где вы сможете с комфортом и пользой для здоровье провести свое время.</p>
+        <div class="row mb-4">
+            <p class="fs-5 text-center">SPA-салон "Гармония" - место, где вы сможете с комфортом и пользой для здоровье провести свое время.</p>
             <div class="d-flex align-items-center justify-content-center">
-                <img src="img/spa-pool.jpg" class="border rounded" alt="Бассейн" style="width: 100%">
+                <img src="img/spa-pool.jpg" class="border rounded" alt="Бассейн" style="width: 80%">
             </div>
-            <p class="fs-5">Если вы часто проводите время в стрессе, чувствуете напряжение в теле, то вам к нам!</p>
+            <p class="fs-5 text-center">Если вы часто проводите время в стрессе, чувствуете напряжение в теле, то вам к нам!</p>
         </div>
+
+        <?php if($auth) {
+            $time = discountExpiration($_SESSION["id"]);
+            if ($time) {
+        ?>
+            <div class="row">
+                <div class="col-md d-flex justify-content-center">
+                    <div class="card" style="width: 70%">
+                        <div class="card-head d-flex justify-content ps-2 pe-2 pt-2">
+                            <div class="col-md-6">
+                                <p class="text-danger fs-4">Ваша персональная скидка</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text-end">Истекает через:
+                                    <?php
+                                        echo $time["h"] . ":" . $time["i"] . ":" . $time["s"];
+                                    ?>
+                                </p>
+                            </div>
+                        </div>
+                        <img src="img/massage-stone.jpg" class="card-img-top" alt="камни">
+                        <div class="card-body d-flex justify-content p-2">
+                            <div class="col-md-6">
+                                <p class="card-text fs-4">Стоун-терапия</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text-end">Цена:
+                                    <b class="text-danger">2000</b>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } else { ?>
+            <div class="row f-flex justify-content-center">
+                <div class="border" style="width: 50%;">
+                    <p class="text-danger">Ваша персональная скидка была просрочена</p>
+                </div>
+            </div>
+        <?php } } ?>
 
         <div class="row m-4">
             <div class="col-md-12 d-flex justify-content-center">
@@ -67,8 +108,7 @@ $auth = $_SESSION['auth'] ?? null;
                     <div class="card-body">
                         <p class="card-text">Массаж стандартный</p>
                         <p>Цена:
-                            <?php
-                            if (isBirthday($_SESSION['id'])) { ?>
+                            <?php if ($auth && isBirthday($_SESSION['id'])) { ?>
                                 <s>2500</s> <b>2375</b> <b class="text-danger">-5%</b>
                             <?php } else { ?>
                                 <b>2500</b>
@@ -83,8 +123,7 @@ $auth = $_SESSION['auth'] ?? null;
                     <div class="card-body">
                         <p class="card-text">Массаж лица</p>
                         <p>Цена:
-                            <?php
-                            if (isBirthday($_SESSION['id'])) { ?>
+                            <?php if ($auth && isBirthday($_SESSION['id'])) { ?>
                                 <s>1500</s> <b>1425</b> <b class="text-danger">-5%</b>
                             <?php } else { ?>
                                 <b>1500</b>
@@ -99,8 +138,7 @@ $auth = $_SESSION['auth'] ?? null;
                     <div class="card-body">
                         <p class="card-text">Шоколадный массаж</p>
                         <p>Цена:
-                            <?php
-                            if (isBirthday($_SESSION['id'])) { ?>
+                            <?php if ($auth && isBirthday($_SESSION['id'])) { ?>
                                 <s>2900</s> <b>2755</b> <b class="text-danger">-5%</b>
                             <?php } else { ?>
                                 <b>2900</b>
@@ -118,8 +156,7 @@ $auth = $_SESSION['auth'] ?? null;
                     <div class="card-body">
                         <p class="card-text">Стоун-терапия</p>
                         <p>Цена:
-                            <?php
-                            if (isBirthday($_SESSION['id'])) { ?>
+                            <?php if ($auth && isBirthday($_SESSION['id'])) { ?>
                                 <s>3000</s> <b>2850</b> <b class="text-danger">-5%</b>
                             <?php } else { ?>
                                 <b>3000</b>
@@ -134,8 +171,7 @@ $auth = $_SESSION['auth'] ?? null;
                     <div class="card-body">
                         <p class="card-text">Фирменный СПА-массаж с ароматерапией</p>
                         <p>Цена:
-                            <?php
-                            if (isBirthday($_SESSION['id'])) { ?>
+                            <?php if ($auth && isBirthday($_SESSION['id'])) { ?>
                                 <s>2900</s> <b>2755</b> <b class="text-danger">-5%</b>
                             <?php } else { ?>
                                 <b>2900</b>
@@ -150,8 +186,7 @@ $auth = $_SESSION['auth'] ?? null;
                     <div class="card-body">
                         <p class="card-text">Массаж с элементами Тайского</p>
                         <p>Цена:
-                            <?php
-                            if (isBirthday($_SESSION['id'])) { ?>
+                            <?php if ($auth && isBirthday($_SESSION['id'])) { ?>
                                 <s>2800</s> <b>2660</b> <b class="text-danger">-5%</b>
                             <?php } else { ?>
                                 <b>2800</b>
@@ -175,8 +210,7 @@ $auth = $_SESSION['auth'] ?? null;
                     <div class="card-body">
                         <p class="card-text">Для одного</p>
                         <p>Цена:
-                            <?php
-                            if (isBirthday($_SESSION['id'])) { ?>
+                            <?php if ($auth && isBirthday($_SESSION['id'])) { ?>
                                 <s>1500</s> <b>1425</b> <b class="text-danger">-5%</b>
                             <?php } else { ?>
                                 <b>1500</b>
@@ -191,8 +225,7 @@ $auth = $_SESSION['auth'] ?? null;
                     <div class="card-body">
                         <p class="card-text">Для двоих</p>
                         <p>Цена:
-                            <?php
-                            if (isBirthday($_SESSION['id'])) { ?>
+                            <?php if ($auth && isBirthday($_SESSION['id'])) { ?>
                                 <s>2700</s> <b>2565</b> <b class="text-danger">-5%</b>
                             <?php } else { ?>
                                 <b>2700</b>
@@ -206,10 +239,10 @@ $auth = $_SESSION['auth'] ?? null;
     </main>
     <footer>
         <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-                <div class="row d-flex justify-content-center text-align-center">
-                    <p class="text-body-tertiary">SPA-салон "Гармония"</p>
-                    <p class="text-body-tertiary">2023</p>
+            <div class="container-fluid d-flex justify-content-center align-items-center">
+                <div class="row">
+                    <p class="text-body-tertiary text-center">SPA-салон "Гармония"</p>
+                    <p class="text-body-tertiary text-center">2023</p>
                 </div>
             </div>
         </nav>
