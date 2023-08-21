@@ -113,6 +113,7 @@ function addNewUser($username, $birthday, $password) : array|bool
     $users_json = json_decode($file_content, true);
     $count_users = count($users_json["users"]);
     $newId = $count_users + 1;
+    date_default_timezone_set('Europe/Moscow');
     $cur_date = date('Y-d-m H:i:s');
     $new_user = [
         "id" => $newId,

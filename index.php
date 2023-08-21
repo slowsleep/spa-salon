@@ -32,7 +32,7 @@ $auth = $_SESSION['auth'] ?? null;
                             // get username by id from session
                             ?>
                             <p>
-                                Привет, <?php print_r(getCurrentUser()) ?>!
+                                Привет, <a href="profile.php"><?php print_r(getCurrentUser()) ?></a>!
                                 <a class="ps-2" href="logout.php">Выйти</a>
                             </p>
                         <?php } ?>
