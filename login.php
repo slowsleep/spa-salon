@@ -30,11 +30,11 @@ if(!$auth) { ?>
             <form action="process.php" method="post" style="width: 60%">
                 <div class="mb-3">
                     <label for="inputLogin" class="form-label">Логин</label>
-                    <input name="login" type="text" class="form-control" id="inputLogin" placeholder="Логин">
+                    <input name="login" type="text" class="form-control" id="inputLogin" placeholder="Логин" required>
                 </div>
                 <div class="mb-3">
                     <label for="inputPassword1" class="form-label">Пароль</label>
-                    <input name="password" type="password" class="form-control" id="inputPassword1" placeholder="Пароль">
+                    <input name="password" type="password" class="form-control" id="inputPassword1" placeholder="Пароль" required>
                 </div>
                 <button name="submit" type="submit" class="btn btn-primary">Submit</button>
             </form>

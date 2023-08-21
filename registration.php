@@ -30,19 +30,19 @@ if(!$auth) { ?>
             <form action="createUser.php" method="post" style="width: 60%">
                 <div class="mb-3">
                     <label for="inputLogin" class="form-label">Логин</label>
-                    <input name="login" type="text" class="form-control" id="inputLogin" placeholder="Логин">
+                    <input name="login" type="text" class="form-control" id="inputLogin" placeholder="Логин" required>
                 </div>
                 <div class="mb-3">
                     <label for="inputBidthday" class="form-label">Дата рождения</label>
-                    <input name="birthday" type="date" class="form-control" id="inputBidthday" placeholder="Дата рождения">
+                    <input name="birthday" type="date" class="form-control" id="inputBidthday" placeholder="Дата рождения" required>
                 </div>
                 <div class="mb-3">
                     <label for="inputPassword1" class="form-label">Пароль</label>
-                    <input name="password1" type="password" class="form-control" id="inputPassword1" placeholder="Пароль">
+                    <input name="password1" type="password" class="form-control" id="inputPassword1" placeholder="Пароль" required>
                 </div>
                 <div class="mb-3">
                     <label for="inputPassword2" class="form-label">Подтверждение пароля</label>
-                    <input name="password2" type="password" class="form-control" id="inputPassword2" placeholder="Подтверждение пароль">
+                    <input name="password2" type="password" class="form-control" id="inputPassword2" placeholder="Подтверждение пароль" required>
                 </div>
                 <button name="submit" type="submit" class="btn btn-primary">Submit</button>
             </form>
