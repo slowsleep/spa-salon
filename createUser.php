@@ -35,6 +35,4 @@ $auth = $_SESSION['auth'] ?? null;
 // если авторизованы
 if ($auth) {
     header('Location: /profile.php');
-} else {
-    header('Location: /');
-} ?>
+}
