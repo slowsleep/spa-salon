@@ -6,3 +6,4 @@
 - HTML
 - PHP
 - Bootstrap
+- JS
