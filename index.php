@@ -30,7 +30,7 @@ $auth = $_SESSION['auth'] ?? null;
                             </p>
                         <?php } else { ?>
                             <p>
-                                Привет, <a href="profile.php"><?php print_r(getCurrentUser()) ?></a>!
+                                Привет, <?php print_r(getCurrentUser()) ?>!
                                 <a class="ps-2" href="logout.php">Выйти</a>
                             </p>
                         <?php } ?>
